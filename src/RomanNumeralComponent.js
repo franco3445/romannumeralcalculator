@@ -6,12 +6,16 @@ export default function RomanNumeralComponent () {
 
 
     const addAndConvertToRomanNumerals = (ints) => {
-        /* Implement me! */
         // numTotal gets the totals for the ints array provided
-        const numTotal = ints.reduce((a,b) => a +b, 0);
+        let numTotal = ints.reduce((a,b) => a +b, 0);
+        // return Nulla if sum is zero as per instructions
+        if (numTotal === 0) {
+            return "Nulla";
+        }
         // let answer because it will change as the converter goes on
         let answer = '';
         // added more keys to include the "subtracted" numerals
+        // needing to go from high to low in order to get the correct "roman syntax"
         const numeralKey = [
             "M",
             "CM",
@@ -27,6 +31,7 @@ export default function RomanNumeralComponent () {
             "IV",
             "I"
         ];
+        // added values to match key above
         const numeralValues = [
             1000,
             900,
@@ -42,8 +47,15 @@ export default function RomanNumeralComponent () {
             4,
             1
         ]
-
-        return ints;
+        // loop through numeralValues to compare to numTotal
+        for(let i =0; i < numeralValues.length; i++){
+            while(numeralValues[i] <= numTotal) {
+                // As we compare, we subtract the value of the numerals we are adding to our answer
+                numTotal -=numeralValues[i];
+                answer += numeralKey[i];
+            }
+        }
+        return answer;
     }
 
     const addNumbers = (inputString) => {
