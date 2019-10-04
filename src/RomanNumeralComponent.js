@@ -7,7 +7,8 @@ export default function RomanNumeralComponent () {
 
     const addAndConvertToRomanNumerals = (ints) => {
         /* Implement me! */
-
+        const numTotal = ints.reduce((a,b) => a +b, 0);
+        let answer = '';
         const numeralKey = [
             "M",
             "D",
@@ -16,7 +17,7 @@ export default function RomanNumeralComponent () {
             "X",
             "V",
             "I"
-        ]
+        ];
 
         return ints;
     }
