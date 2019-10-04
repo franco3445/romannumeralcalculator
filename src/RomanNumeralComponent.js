@@ -7,17 +7,41 @@ export default function RomanNumeralComponent () {
 
     const addAndConvertToRomanNumerals = (ints) => {
         /* Implement me! */
+        // numTotal gets the totals for the ints array provided
         const numTotal = ints.reduce((a,b) => a +b, 0);
+        // let answer because it will change as the converter goes on
         let answer = '';
+        // added more keys to include the "subtracted" numerals
         const numeralKey = [
             "M",
+            "CM",
             "D",
+            "CD",
             "C",
+            "XC",
             "L",
+            "XL",
             "X",
+            "IX",
             "V",
+            "IV",
             "I"
         ];
+        const numeralValues = [
+            1000,
+            900,
+            500,
+            400,
+            100,
+            90,
+            50,
+            40,
+            10,
+            9,
+            5,
+            4,
+            1
+        ]
 
         return ints;
     }
